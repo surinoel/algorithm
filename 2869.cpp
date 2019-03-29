@@ -6,7 +6,6 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	freopen("data.txt", "r", stdin);
 	int a, b, v;
 	cin >> a >> b >> v;
 	int d = a - b;
