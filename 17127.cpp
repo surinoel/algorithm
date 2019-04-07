@@ -15,7 +15,6 @@ void go(int idx, int sum, vector<int> &c) {
 		int ss = 0;
 		int start = 0;
 		int tmp = 1;
-	
 		for (int k = 0; k < 4; k++) {
 			int tmp = 1;
 			for (int i = start; i < start + c[k]; i++) {
@@ -24,7 +23,6 @@ void go(int idx, int sum, vector<int> &c) {
 			start += c[k];
 			ss += tmp;
 		}
-
 		ans = max(ans, ss);
 		return;
 	}
@@ -40,7 +38,6 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	freopen("data.txt", "r", stdin);
 	cin >> n;
 	v.resize(n);
 	for (int i = 0; i < n; i++) {
