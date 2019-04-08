@@ -16,7 +16,7 @@ int dz[6] = { 0, 0, 0, 0, 1, -1 };
 
 void rotate(vector<vector<int>> &v) {
 	vector<vector<int>> tmp(v);
-	
+
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
 			v[i][j] = tmp[j][5 - i - 1];
@@ -84,8 +84,10 @@ int main(void) {
 								}
 							}
 
-							if (ans == -1 || ans > dist[4][4][4]) {
-								ans = dist[4][4][4];
+							if (dist[4][4][4] != -1) {
+								if (ans == -1 || ans > dist[4][4][4]) {
+									ans = dist[4][4][4];
+								}
 							}
 						}
 					}
