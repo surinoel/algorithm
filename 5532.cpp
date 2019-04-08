@@ -6,7 +6,6 @@ using namespace std;
 int main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    freopen("data.txt", "r", stdin);
 
     int day, a, b, c, d;
     cin >> day >> a >> b >> c >> d;
