@@ -63,7 +63,6 @@ int main(void) {
 			if (d[i][j - 1] != -1) {
 				if (mat[i][j] == 1) {
 					d[i][j] = max(d[i][j], d[i][j - 1] + 1);
-					d[i][j] = max(d[i][j], 1);
 				}
 				else {
 					d[i][j] = max(d[i][j], d[i][j - 1]);
