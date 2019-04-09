@@ -2,7 +2,6 @@
 
 using namespace std;
 
-// 합과 끝에 오는 수
 long long d[100001][4];
 
 int main(void) {
@@ -29,7 +28,6 @@ int main(void) {
 		}
 	}
 
-	freopen("data.txt", "r", stdin);
 	int tc;
 	cin >> tc;
 	while (tc--) {
