@@ -1,4 +1,4 @@
- #include <vector>
+#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -79,7 +79,6 @@ int main(void) {
 				if (col[i + 1][j].first - col[i][j].first == 1) {
 					bool ok = true;
 					for (int k = i; k >= i - d + 1; k--) {
-						
 						if ((!(k >= 0 && k <= n - 1)) || (col[k][j].first != col[i][j].first) || col[k][j].second == true) {
 							ok = false;
 							break;
