@@ -76,7 +76,8 @@ int main(void) {
 					sort(mat[i][j].begin(), mat[i][j].end(), [](auto &u, auto &v) {
 						return u.z > v.z;
 					});
-					for (int p = 0; p < mat[i][j].size() - 1; p++) {
+					int ssize = mat[i][j].size();
+					for (int p = 0; p < ssize - 1; p++) {
 						mat[i][j].pop_back();
 					}
 				}
