@@ -26,7 +26,7 @@ void moving(int x, int y, shark sh, vector<vector<deque<shark>>> &mat) {
 			else if (dir == 2) dir = 1;
 			else if (dir == 3) dir = 4;
 			else if (dir == 4) dir = 3;
-			
+
 			tmpx += dx[dir];
 			tmpy += dy[dir];
 		}
@@ -61,26 +61,21 @@ int main(void) {
 				break;
 			}
 		}
+
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				if (mat[i][j].empty()) continue;
 				if (mat[i][j][0].move == true) continue;
-				if (mat[i][j][0].s == 0) {
-					mat[i][j][0].move = true;
-				}
-				else {
-					moving(i, j, mat[i][j][0], mat);
-				}
+				moving(i, j, mat[i][j][0], mat);
 			}
 		}
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				if (mat[i][j].size() > 1) {
-					sort(mat[i][j].begin(), mat[i][j].end(), [&](auto &u, auto &v) {
+					sort(mat[i][j].begin(), mat[i][j].end(), [](auto &u, auto &v) {
 						return u.z > v.z;
 					});
-
 					for (int p = 0; p < mat[i][j].size() - 1; p++) {
 						mat[i][j].pop_back();
 					}
@@ -91,6 +86,7 @@ int main(void) {
 			}
 		}
 	}
+
 	cout << ans << '\n';
 	return 0;
 }
