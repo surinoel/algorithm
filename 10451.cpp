@@ -40,4 +40,5 @@ int main(void) {
 
 		cout << ans << '\n';
 	}
+	return 0;
 }
