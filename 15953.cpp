@@ -35,6 +35,5 @@ int main(void) {
 		cin >> x >> y;
 		cout << a[x] + b[y] << '\n';
 	}
-
 	return 0;
 }
