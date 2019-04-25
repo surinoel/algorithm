@@ -21,6 +21,7 @@ int main(void) {
 		cin >> x >> y;
 		mat[x - 1][y - 1] = 2;
 	}
+	
 	cin >> k;
 	char c; int end;
 	int start = 1;
