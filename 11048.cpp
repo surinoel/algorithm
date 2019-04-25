@@ -10,7 +10,6 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	freopen("data.txt", "r", stdin);
 	int n, m;
 	cin >> n >> m;
 	for (int i = 0; i < n; i++) {
