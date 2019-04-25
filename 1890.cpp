@@ -7,7 +7,7 @@ long long d[200][200];
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+	cin.tie(0);
 
 	int n;
 	cin >> n;
