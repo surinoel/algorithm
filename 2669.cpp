@@ -9,7 +9,6 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	freopen("data.txt", "r", stdin);
 	for (int k = 0; k < 4; k++) {
 		int lx, ly, rx, ry;
 		cin >> ly >> lx >> ry >> rx;
