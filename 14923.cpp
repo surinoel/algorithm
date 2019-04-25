@@ -67,5 +67,6 @@ int main(void) {
 	else {
 		cout << min(dist[ex][ey][0], dist[ex][ey][1]) << '\n';
 	}
+	
 	return 0;
 }
