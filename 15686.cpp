@@ -66,6 +66,5 @@ int main(void) {
 	} while (prev_permutation(chk.begin(), chk.end()));
 
 	cout << ans << '\n';
-
 	return 0;
 }
