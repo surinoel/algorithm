@@ -1,7 +1,7 @@
 #include <queue>
 #include <tuple>
+#include <cstdio>
 #include <cstring>
-#include <iostream>
 
 using namespace std;
 
@@ -12,6 +12,7 @@ int dx[4] = { 1, -1, 0, 0 };
 int dy[4] = { 0, 0, 1, -1 };
 
 int main(void) {
+	freopen("data.txt", "r", stdin);
 	int n;
 	scanf("%d", &n);
 	for (int i = 0; i < n; i++) {
@@ -73,6 +74,6 @@ int main(void) {
 		}
 	}
 
-	cout << ans << '\n';
+	printf("%d\n", ans);
 	return 0;
 }
