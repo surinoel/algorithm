@@ -3,18 +3,17 @@
 
 using namespace std;
 
-bool prime[1000000];
+bool prime[246913];
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
 	memset(prime, true, sizeof(prime));
-
 	prime[1] = false;
-	for (int i = 2; i < 1000000; i++) {
+	for (int i = 2; i <= 246912; i++) {
 		if (!prime[i]) continue;
-		for (int j = i + i; j < 1000000; j += i) {
+		for (int j = i + i; j <= 246912; j += i) {
 			prime[j] = false;
 		}
 	}
