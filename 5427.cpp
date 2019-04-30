@@ -1,7 +1,6 @@
 #include <tuple>
 #include <queue>
 #include <string>
-#include <vector>
 #include <cstring>
 #include <iostream>
 
@@ -24,9 +23,12 @@ int main(void) {
 		memset(mat, 0, sizeof(mat));
 		queue<pair<int, int>> fire, person;
 		for (int i = 0; i < n; i++) {
-			string s; cin >> s;
+			string s; 
+			cin >> s;
 			for (int j = 0; j < m; j++) {
-				if (s[j] == '#') mat[i][j] = -1;
+				if (s[j] == '#') {
+					mat[i][j] = -1;
+				}
 				else if (s[j] == '*') {
 					mat[i][j] = -1;
 					fire.push(make_pair(i, j));
