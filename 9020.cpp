@@ -22,11 +22,11 @@ int main(void) {
 	while (tc--) {
 		int n; cin >> n;
 		int a, b;
-		for (int i = 2; i <= n / 2; i++) {
-			if (!prime[i]) continue;
-			if (!prime[n - i]) continue;
+		for (int i = n / 2; i >= 2; i--) {
+			if (!prime[i] || !prime[n - i]) continue;
 			a = i;
 			b = n - i;
+            break;
 		}
 		cout << a << ' ' << b << '\n';
 	}
