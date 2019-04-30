@@ -26,7 +26,7 @@ int main(void) {
 			if (!prime[i] || !prime[n - i]) continue;
 			a = i;
 			b = n - i;
-            break;
+			break;
 		}
 		cout << a << ' ' << b << '\n';
 	}
