@@ -31,15 +31,9 @@ int main(void) {
 	for (int i = 0; i < 4; i++) {
 		if (!is_ok[i]) cnt += 1;
 	}
-	
-	if (cnt == 0) {
-		if (len - 6 >= 0) cout << 0 << '\n';
-		else cout << 6 - len << '\n';
-	}
-	else {
-		if (len + cnt >= 6) cout << cnt << '\n';
-		else cout << 6 - len << '\n';
-	}
+
+	if (len + cnt >= 6) cout << cnt << '\n';
+	else cout << 6 - len << '\n';
 
 	return 0;
 }
