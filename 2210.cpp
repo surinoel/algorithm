@@ -24,7 +24,6 @@ void go(int x, int y, int sum, int count, vector<int> &v) {
 	return;
 }
 
-
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
