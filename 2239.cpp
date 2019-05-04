@@ -28,18 +28,14 @@ void go(int idx) {
 			if (row[x][j] == true) {
 				check[j] = true;
 			}
-		}
-		for (int j = 1; j <= 9; j++) {
 			if (col[y][j] == true) {
 				check[j] = true;
 			}
-		}
-		for (int j = 1; j <= 9; j++) {
 			if (sqaure[3 * (x / 3) + y / 3][j] == true) {
 				check[j] = true;
 			}
 		}
-
+	
 		for (int i = 1; i <= 9; i++) {
 			if (check[i] == false) {
 				row[x][i] = true;
