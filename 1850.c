@@ -12,7 +12,6 @@ long long gcd(long long n, long long m) {
 
 int main(void) {
 	long long n, m;
-	long long maxv, minv;
 	scanf("%lld %lld", &n, &m);
 	
 	for (int i = 0; i < gcd(max(n, m), min(n, m)); i++) {
