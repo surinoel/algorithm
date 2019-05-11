@@ -27,10 +27,7 @@ int main(void) {
 		}
 	}
 
-	for (int i = 1; i <= n; i++) {
-		if (q.empty()) {
-			exit(1);
-		}
+	while(!q.empty()) {
 		int p = q.front();
 		q.pop();
 		ans.push_back(p);
