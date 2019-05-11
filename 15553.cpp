@@ -38,7 +38,7 @@ int main(void) {
 		}
 	}
 	ans += v[n - 1].second - v[d1].first;
+	
 	cout << ans << '\n';
-
 	return 0;
 }
