@@ -12,7 +12,8 @@ int getparent(int idx) {
 void union_group(int a, int b) {
 	int ap = getparent(a);
 	int bp = getparent(b);
-	parent[bp] = ap;
+	if(ap < bp) parent[bp] = ap;
+	else parent[ap] = bp;
 }
 
 int main(void) {
