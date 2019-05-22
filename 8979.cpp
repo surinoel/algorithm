@@ -59,7 +59,7 @@ int main(void) {
 		d[i].bronze = b;
 	}
 
-	for (int i = 1; i <= n; i++) {
+	for (int i = 1; i < n; i++) {
 		for (int j = 1; j <= n - i; j++) {
 			if (!cmp(d[j], d[j + 1])) {
 				Country tmp;
