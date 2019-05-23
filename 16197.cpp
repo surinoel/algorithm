@@ -73,8 +73,7 @@ int main(void) {
 			ty1 = y1 + dy[k];
 			tx2 = x2 + dx[k];
 			ty2 = y2 + dy[k];
-			
-			bool ook1 = false, ook2 = false;
+
 			if (out(tx1, ty1) && out(tx2, ty2)) continue;
 			
 			if (out(tx1, ty1) ^ out(tx2, ty2)) {
