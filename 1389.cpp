@@ -51,7 +51,7 @@ int main(void) {
 			ans = i;
 		}
 	}
+	
 	cout << ans << '\n';
-
 	return 0;
 }
