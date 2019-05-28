@@ -5,6 +5,7 @@
 int d[10000001];
 
 int main(void) {
+	freopen("data.txt", "r", stdin);
 	int n, max_height = 0;
 	long long com_num = 0;
 	scanf("%d", &n);
@@ -23,24 +24,20 @@ int main(void) {
 	if (com_num % 2) {
 		comp += 1;
 	}
-    if(max_height == 1) {
-        ans = 1;
-    }
-    else {
-        long long tmp = com_num;
-	    for (int i = max_height; i > 0; i--) {
-		    if (tmp < comp) {
-		    	ans = i + 1;
-		    	break;
-		    }
-		    else if (tmp == comp || i == 1) {
-			    ans = i;
-			    break;
-		    }
-		    tmp -= d[i];
-		    d[i - 1] += d[i];
-	    }
-    }
+
+	long long tmp = com_num;
+	for (int i = max_height; i > 0; i--) {
+		if (tmp < comp) {
+			ans = i + 1;
+			break;
+		}
+		else if (tmp == comp || i == 1) {
+			ans = i;
+			break;
+		}
+		tmp -= d[i];
+		d[i - 1] += d[i];
+	}
 
 	printf("%d\n", ans);
 	return 0;
