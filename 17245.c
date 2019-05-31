@@ -5,7 +5,6 @@
 int d[10000001];
 
 int main(void) {
-	freopen("data.txt", "r", stdin);
 	int n, max_height = 0;
 	long long com_num = 0;
 	scanf("%d", &n);
