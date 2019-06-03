@@ -7,9 +7,7 @@ int main(void) {
 	char c;
 	scanf("%d %d", &n, &m);
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
-			scanf(" %c ", &mat[i][j]);
-		}
+		scanf("%s", mat[i]);
 	}
 
 	for (int i = 0; i < n; i++) {
