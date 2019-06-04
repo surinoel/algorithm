@@ -12,7 +12,6 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	freopen("data.txt", "r", stdin);
 	int n;
 	cin >> n;
 	mat = vector<vector<int>>(n, vector<int>(9));
