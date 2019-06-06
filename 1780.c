@@ -1,19 +1,11 @@
 #include <stdio.h>
 
 short mat[2200][2200];
-int a, b, c;
+int ans[3];
 
 void go(int n, int x, int y) {
 	if (n == 1) {
-		if (mat[x][y] == -1) {
-			a += 1;
-		}
-		else if (mat[x][y] == 0) {
-			b += 1;
-		}
-		else {
-			c += 1;
-		}
+		ans[mat[x][y] + 1] += 1;
 		return;
 	}
 
@@ -30,20 +22,7 @@ void go(int n, int x, int y) {
 			}
 		}
 	}
-
-	switch (val) {
-	case -1:
-		a += 1;
-		break;
-	case 0:
-		b += 1;
-		break;
-	case 1:
-		c += 1;
-		break;
-	default:
-		break;
-	}
+	ans[val + 1] += 1;
 
 end:
 	if (ok == -1) {
@@ -70,6 +49,6 @@ int main(void) {
 	}
 
 	go(n, n / 2, n / 2);
-	printf("%d\n%d\n%d\n", a, b, c);
+	printf("%d\n%d\n%d\n", ans[0], ans[1], ans[2]);
 	return 0;
 }
