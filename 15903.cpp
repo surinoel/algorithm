@@ -17,7 +17,7 @@ int main(void) {
 	}
 
 	for (int i = 0; i < m; i++) {
-		int x, y;
+		long long x, y;
 		x = q.top();
 		q.pop();
 		y = q.top();
