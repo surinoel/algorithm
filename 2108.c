@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#define MID	4500
+#define MID 4500
 
 int a[9000];
 
