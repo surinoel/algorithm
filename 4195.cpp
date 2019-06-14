@@ -6,8 +6,8 @@
 
 using namespace std;
 
-int p[250000];
-int b[250000];
+int p[200001];
+int b[200001];
 char s1[21], s2[21];
 
 int Find(int x) {
