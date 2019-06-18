@@ -1,3 +1,4 @@
+#include <climits>
 #include <iostream>
 
 using namespace std;
@@ -12,8 +13,8 @@ Edge edge[5700];
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-
-	int inf = 1000000000;
+	
+	int inf = INT_MAX;
 	int tc;
 	cin >> tc;
 	while (tc--) {
