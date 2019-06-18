@@ -17,7 +17,7 @@ int main(void) {
 	int n, m;
 	cin >> n >> m;
 	for (int i = 1; i <= n; i++) {
-		dist[i] = 100000000;
+		dist[i] = 2100000000;
 	}
 	for (int i = 0; i < m; i++) {
 		cin >> edge[i].from >> edge[i].to >> edge[i].cost;
@@ -31,7 +31,7 @@ int main(void) {
 			int to = edge[j].to;
 			int cost = edge[j].cost;
 
-			if (dist[from] != 100000000 && dist[to] > dist[from] + cost) {
+			if (dist[from] != 2100000000 && dist[to] > dist[from] + cost) {
 				if (i == n) negative_cycle = true;
 				dist[to] = dist[from] + cost;
 			}
@@ -42,7 +42,7 @@ int main(void) {
 	}
 	else {
 		for (int i = 2; i <= n; i++) {
-			if (dist[i] == 100000000) {
+			if (dist[i] == 2100000000) {
 				cout << -1 << '\n';
 			}
 			else {
