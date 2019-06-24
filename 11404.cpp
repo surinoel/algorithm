@@ -35,7 +35,7 @@ int main(void) {
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= n; j++) {
 			if (dist[i][j] == inf) {
-				cout << dist[i][j] << ' ';
+				cout << 0 << ' ';
 			}
 			else {
 				cout << dist[i][j] << ' ';
