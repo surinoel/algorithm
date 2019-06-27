@@ -55,7 +55,6 @@ pair<int,int> go(int x, int y, deque<int> dq1, deque<char> dq2) {
 	return ret;
 }
 
-
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
