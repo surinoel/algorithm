@@ -68,7 +68,7 @@ int main(void) {
 	}
 
 	deque<int> dq1;
-	deque<char>	dq2;
+	deque<char> dq2;
 	dq1.push_back(mat[0][0] - '0');
 	pair<int,int> ret = go(0, 0, dq1, dq2);
 	cout << ret.first << ' ' << ret.second << '\n';
