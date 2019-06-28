@@ -70,7 +70,7 @@ int main(void) {
 			int x, y;
 			tie(x, y) = q.front();
 			q.pop();
-            if(ans != -1 && dist[x][y] > ans) break;
+            		if(ans != -1 && dist[x][y] > ans) break;
 			for (int k = 0; k < 4; k++) {
 				int tx = x + dx[k];
 				int ty = y + dy[k];
