@@ -30,7 +30,7 @@ int main(void) {
 			continue;
 		}
 		int ans = 1;
-		for (int i = x - 1; i >= 1; i--) {
+		for (int i = x - 1; ; i--) {
 			if (prime[i]) break;
 			ans += 1;
 		}
