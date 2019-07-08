@@ -12,7 +12,6 @@ int dist[40001];
 
 int LCA(int x, int y)
 {
-	int dist1 = 0, dist2 = 0;
 	if (d[x] < d[y]) {
 		swap(x, y);
 	}
