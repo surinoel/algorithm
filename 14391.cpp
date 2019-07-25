@@ -7,7 +7,6 @@ using namespace std;
 int mat[4][4];
 
 int main(void) {
-	freopen("data.txt", "r", stdin);
 	int n, m;
 	scanf("%d %d", &n, &m);
 	for (int i = 0; i < n; i++) {
