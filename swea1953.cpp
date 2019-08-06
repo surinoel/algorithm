@@ -48,7 +48,6 @@ int main(void) {
 	dir[7][2][0] = inf;
 	dir[7][2][1] = inf;
 
-	freopen("data.txt", "r", stdin);
 	int tc;
 	cin >> tc;
 	for (int test_case = 1; test_case <= tc; test_case++) {
