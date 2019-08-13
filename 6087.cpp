@@ -16,7 +16,6 @@ int dy[4] = { 0, 0, 1, -1 };
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-	cout.setf(ios::right);
 
 	int n, m, ex, ey;
 	cin >> m >> n;
