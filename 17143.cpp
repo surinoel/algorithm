@@ -1,91 +1,107 @@
-#include <deque>
 #include <vector>
+#include <cstring>
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
 
-typedef struct __shark {
-	int s, d, z;
-	bool move;
-	__shark(int _s, int _d, int _z, bool _move) : s(_s), d(_d), z(_z), move(_move) {}
-} shark;
+typedef struct _shark {
+	int dir, vc, size;
+	_shark() : dir(0), vc(0), size(0) {}
+	_shark(int dir, int vc, int size) :
+		dir(dir), vc(vc), size(size) {}
+} Shark;
 
-int n, m, k;
+typedef struct _sharkinfo {
+	int x, y, dir, vc, size;
+	_sharkinfo() : x(0), y(0), dir(0), vc(0), size(0) {}
+	_sharkinfo(int x, int y, int dir, int vc, int size) :
+		x(x), y(y), dir(dir), vc(vc), size(size) {}
+} Sharkinfo;
+
+vector<Shark> mat[100][100];
+vector<Shark> tmat[100][100];
+
 int dx[5] = { 0, -1, 1, 0, 0 };
 int dy[5] = { 0, 0, 0, 1, -1 };
-
-void moving(int x, int y, shark sh, vector<vector<deque<shark>>> &mat) {
-	int tmpx = x, tmpy = y;
-	int dir = sh.d;
-	int v = sh.s;
-	int size = sh.z;
-	for (int i = 0; i < v; i++) {
-		if (tmpx + dx[dir] < 0 || tmpy + dy[dir] < 0 || tmpx + dx[dir] > n - 1 || tmpy + dy[dir] > m - 1) {
-			if (dir == 1) dir = 2;
-			else if (dir == 2) dir = 1;
-			else if (dir == 3) dir = 4;
-			else if (dir == 4) dir = 3;
-
-			tmpx += dx[dir];
-			tmpy += dy[dir];
-		}
-		else {
-			tmpx += dx[dir];
-			tmpy += dy[dir];
-		}
-	}
-	mat[x][y].pop_front();
-	mat[tmpx][tmpy].push_back(shark(v, dir, size, true));
-}
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
+	int n, m, k;
 	cin >> n >> m >> k;
-	vector<vector<deque<shark>>> mat(n, vector<deque<shark>>(m, deque<shark>()));
+
+	vector<Sharkinfo> si;
 	for (int i = 0; i < k; i++) {
-		int r, c, s, d, z;
-		cin >> r >> c >> s >> d >> z;
-		mat[r - 1][c - 1].push_back(shark(s, d, z, false));
+		int x, y, s, d, z;
+		cin >> x >> y >> s >> d >> z;
+		x -= 1, y -= 1;
+		si.push_back(Sharkinfo(x, y, d, s, z));
+		mat[x][y].push_back(Shark(d, s, z));
 	}
 
-	long long ans = 0;
-	int pos = -1;
-	while (++pos < m) {
+	int ans = 0;
+	for (int col = 0; col < m; col++) {
 		for (int i = 0; i < n; i++) {
-			if (!mat[i][pos].empty()) {
-				ans += mat[i][pos][0].z;
-				mat[i][pos].pop_front();
+			if (mat[i][col].size() > 0) {
+				ans += mat[i][col].front().size;
+				mat[i][col].clear();
 				break;
 			}
 		}
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (mat[i][j].empty()) continue;
-				if (mat[i][j][0].move == true) continue;
-				moving(i, j, mat[i][j][0], mat);
+		for (int i = 0; i < si.size(); i++) {
+			int x, y, s, d, z;
+			x = si[i].x;
+			y = si[i].y;
+			s = si[i].vc;
+			d = si[i].dir;
+			z = si[i].size;
+
+			if (mat[x][y].size() == 0) continue;
+
+			int tx = x, ty = y;
+			int range;
+			if (d == 1 || d == 2) range = s % (2 * (n - 1));
+			else range = s % (2 * (m - 1));
+			for (int j = 0; j < range; j++) {
+				tx += dx[d];
+				ty += dy[d];
+				if (tx < 0 || ty < 0 || tx > n - 1 || ty > m - 1) {
+					if (d == 1) d = 2;
+					else if (d == 2) d = 1;
+					else if (d == 3) d = 4;
+					else if (d == 4) d = 3;
+					j -= 1;
+					tx += dx[d];
+					ty += dy[d];
+					continue;
+				}
+			}
+			if (tmat[tx][ty].empty()) {
+				tmat[tx][ty].push_back(Shark(d, s, z));
+			}
+			else {
+				if (tmat[tx][ty].front().size < z) {
+					tmat[tx][ty].clear();
+					tmat[tx][ty].push_back(Shark(d, s, z));
+				}
 			}
 		}
 
+		si = vector<Sharkinfo>();
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				if (mat[i][j].size() > 1) {
-					sort(mat[i][j].begin(), mat[i][j].end(), [](auto &u, auto &v) {
-						return u.z > v.z;
-					});
-					int ssize = mat[i][j].size();
-					for (int p = 0; p < ssize - 1; p++) {
-						mat[i][j].pop_back();
-					}
-				}
-				if (mat[i][j].size() > 0) {
-					mat[i][j][0].move = false;
+				mat[i][j].clear();
+				mat[i][j] = tmat[i][j];
+				tmat[i][j].clear();
+
+				if (!mat[i][j].empty()) {
+					si.push_back(Sharkinfo(i, j, mat[i][j].front().dir, mat[i][j].front().vc, mat[i][j].front().size));
 				}
 			}
 		}
+
 	}
 
 	cout << ans << '\n';
