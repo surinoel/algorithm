@@ -10,7 +10,6 @@ int mat[1000][1000];
 int dist[1000][1000];
 
 bool check_corner(int x, int y) {
-
 	for (int i = x; i < x + h; i++) {
 		if (i < 0 || i > n - 1 || mat[i][y] == 1) return false;
 		if (y + w - 1 > m - 1 || mat[i][y + w - 1] == 1) return false;
