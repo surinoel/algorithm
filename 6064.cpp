@@ -23,26 +23,21 @@ int main(void) {
 		int target = max(x, y);
 		int ans;
 		bool ok = false;
-		if (n == x && m == y) {
-			ans = limit;
-			ok = true;
-		}
-		else {
-			int inc;
-			if (target == x) inc = n;
-			else inc = m;
+		
+		int inc;
+		if (target == x) inc = n;
+		else inc = m;
 
-			if (x == n) x = 0;
-			if (y == m) y = 0;
-			for (int i = target; i <= limit; i += inc) {
-				if (i % n == x && i % m == y) {
-					ok = true;
-					ans = i;
-					break;
-				}
+		if (x == n) x = 0;
+		if (y == m) y = 0;
+		for (int i = target; i <= limit; i += inc) {
+			if (i % n == x && i % m == y) {
+				ok = true;
+				ans = i;
+				break;
 			}
 		}
-
+		
 		if (!ok) {
 			cout << -1 << '\n';
 		}
