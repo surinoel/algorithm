@@ -20,7 +20,7 @@ int main(void) {
 		int n, m, x, y;
 		cin >> n >> m >> x >> y;
 		int limit = (n * m) / gcd(max(n, m), min(n, m));
-		int target = min(x, y);
+		int target = max(x, y);
 		int ans;
 		bool ok = false;
 		if (n == x && m == y) {
@@ -28,26 +28,17 @@ int main(void) {
 			ok = true;
 		}
 		else {
-			if (target == x) {
-				if (x == n) x = 0;
-				if (y == m) y = 0;
-				for (int i = target; i <= limit; i += n) {
-					if (i % n == x && i % m == y) {
-						ok = true;
-						ans = i;
-						break;
-					}
-				}
-			}
-			else {
-				if (x == n) x = 0;
-				if (y == m) y = 0;
-				for (int i = target; i <= limit; i += m) {
-					if (i % n == x && i % m == y) {
-						ok = true;
-						ans = i;
-						break;
-					}
+			int inc;
+			if (target == x) inc = n;
+			else inc = m;
+
+			if (x == n) x = 0;
+			if (y == m) y = 0;
+			for (int i = target; i <= limit; i += inc) {
+				if (i % n == x && i % m == y) {
+					ok = true;
+					ans = i;
+					break;
 				}
 			}
 		}
