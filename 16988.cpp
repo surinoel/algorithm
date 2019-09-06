@@ -54,7 +54,6 @@ int main(void) {
 					for (int i = 0; i < n; i++) {
 						for (int j = 0; j < m; j++) {
 							if (tmat[i][j] == 2 && group[i][j] == 0) {
-								
 								group[i][j] = ++group_num;
 								queue<pair<int, int>> q;
 								q.push(make_pair(i, j));
