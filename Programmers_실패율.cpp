@@ -30,12 +30,12 @@ vector<int> solution(int N, vector<int> stages) {
 	vector<pair<int, double>> tmp(N + 1, make_pair(0, 0));
 	for (int i = 1; i <= N; i++) {
 		tmp[i].first = i;
-        if(score[i].second != 0) {
-            tmp[i].second = score[i].first / score[i].second;
-        }
-        else {
-            tmp[i].second = 1;
-        }
+		if(score[i].second != 0) {
+		    tmp[i].second = score[i].first / score[i].second;
+		}
+		else {
+		    tmp[i].second = 1;
+		}
 	}
 
 	sort(tmp.begin() + 1, tmp.end(), cmp);
