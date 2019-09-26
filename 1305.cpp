@@ -5,13 +5,11 @@
 
 using namespace std;
 
-#define min(n, m) n > m ? m : n
-
 vector<int> makeTable(string pattern) {
     int strsize = pattern.size();
     vector<int> table(strsize);
-
     int j = 0;
+
     for(int i=1; i<strsize; i++) {
         while(j > 0 && pattern[i] != pattern[j]) {
             j = table[j - 1];
@@ -32,7 +30,6 @@ int main(void) {
     cin >> n >> pattern;
 
     vector<int> table = makeTable(pattern);
-    cout << n - table[n-1] << '\n';
-
+    cout << n - table[n - 1] << '\n';
     return 0;
 }
