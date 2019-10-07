@@ -30,7 +30,6 @@ int main(void) {
 		}
 	}
 
-	
 	while (rest--) {
 		if (left > right) {
 			right += 1;
