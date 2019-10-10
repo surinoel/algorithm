@@ -1,14 +1,15 @@
 #include <queue>
+#include <tuple>
 #include <vector>
 #include <cstring>
 #include <iostream>
 
 using namespace std;
 
-vector<int> place[1001];
+int exittime[1001];
 int ind[1001];
-int buildtime[1001];
-long long exittime[1001];
+int ans[1001];
+vector<int> graph[1001];
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
@@ -16,52 +17,52 @@ int main(void) {
 
 	int tc;
 	cin >> tc;
-	while (tc--) {
-		memset(ind, 0, sizeof(ind));
-		memset(buildtime, 0, sizeof(buildtime));
-		memset(exittime, 0, sizeof(exittime));
-		for (int i = 0; i < 1001; i++) {
-			place[i] = vector<int>();
-		}
 
+	while (tc--) {
 		int n, m;
 		cin >> n >> m;
 		for (int i = 1; i <= n; i++) {
-			cin >> buildtime[i];
+			exittime[i] = 0;
+			ind[i] = 0;
+			ans[i] = 0;
+			graph[i].clear();
+
+			cin >> exittime[i];
 		}
 		for (int i = 0; i < m; i++) {
 			int x, y;
 			cin >> x >> y;
-			place[x].push_back(y);
 			ind[y] += 1;
+			graph[x].push_back(y);
 		}
-		int lastplace; cin >> lastplace;
 
 		queue<int> q;
 		for (int i = 1; i <= n; i++) {
 			if (ind[i] == 0) {
-				exittime[i] = buildtime[i];
 				q.push(i);
+				ans[i] = exittime[i];
 			}
 		}
 
 		while (!q.empty()) {
-			int x = q.front();
+			int node = q.front();
 			q.pop();
 
-			for (int k = 0; k < place[x].size(); k++) {
-				int node = place[x][k];
-				ind[node] -= 1;
-				if (ind[node] == 0) {
-					q.push(node);
+			for (int i = 0; i < graph[node].size(); i++) {
+				int y = graph[node][i];
+				if (--ind[y] == 0) {
+					q.push(y);
 				}
-				if (exittime[node] < exittime[x] + buildtime[node]) {
-					exittime[node] = exittime[x] + buildtime[node];
+
+				if (ans[y] == 0 || ans[y] < ans[node] + exittime[y]) {
+					ans[y] = ans[node] + exittime[y];
 				}
 			}
 		}
 
-		cout << exittime[lastplace] << '\n';
+		int buildnum;
+		cin >> buildnum;
+		cout << ans[buildnum] << '\n';
 	}
 
 	return 0;
