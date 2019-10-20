@@ -37,7 +37,7 @@ int solution(string name) {
 		}
 		if (ok) {
 			answer = sum - 1;
-      if(answer == -1) answer = 0;
+      			if(answer == -1) answer = 0;
 			break;
 		}
 
