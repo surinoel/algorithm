@@ -31,6 +31,7 @@ int main(void) {
 	if (ans.length() > 1 && ans[0] == '0') {
 		ans = "0";
 	}
+	
 	cout << ans << '\n';
 	return 0;
 }
