@@ -1,3 +1,4 @@
+/* 삼각형의 면적이 최대 int 범위를 넘지 않으므로 자료형은 int로 해도 무방하다 */
 #include <iostream>
 
 using namespace std;
