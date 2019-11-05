@@ -37,6 +37,7 @@ void move(vector<int> &arr) {
 		{ 0, 0 }
 	};
 
+	bool tok = true;
 	int sum = 0;
 	for (int i = 0; i < 10; i++) {
 		int mal = arr[i];
@@ -78,10 +79,15 @@ void move(vector<int> &arr) {
 				locate[mal].second = dir;
 				sum += present;
 			}
+			else {
+				tok = false;
+			}
 		}
 	}
-	
-	ans = max(ans, sum);
+		
+	if (tok) {
+		ans = max(ans, sum);
+	}
 }
 
 void go(int idx, vector<int> &arr) {
